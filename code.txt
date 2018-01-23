@@ -1,0 +1,33 @@
+public class FirstComeFirstServe {
+
+	public int[][] FCFS(int arrival_time [], int job_size[])
+	{
+		int length=arrival_time.length;
+		int loopCounter;
+		int outputArr[][]=new int[length][5];
+		for(loopCounter=0;loopCounter<length;loopCounter++)//initializing first two columns
+		{
+			outputArr[loopCounter][0]=loopCounter+1;
+			outputArr[loopCounter][1]=arrival_time[loopCounter];
+		}
+		outputArr[0][2]=0;
+		outputArr[0][3]=arrival_time[0];
+		outputArr[0][4]=job_size[0]+arrival_time[0]-1;
+		for(loopCounter=1;loopCounter<length;loopCounter++)
+		{
+			if(outputArr[loopCounter-1][4]>=outputArr[loopCounter][1])
+			{
+				outputArr[loopCounter][3]=outputArr[loopCounter-1][4]+1;//start time
+				outputArr[loopCounter][2]=outputArr[loopCounter][3]-outputArr[loopCounter][1];//waiting time
+				outputArr[loopCounter][4]=outputArr[loopCounter][3]+job_size[loopCounter]-1;//finishing time
+			}
+			else
+			{
+				outputArr[loopCounter][2]=0;//waiting time
+				outputArr[loopCounter][3]=arrival_time[loopCounter];//start time
+				outputArr[loopCounter][4]=outputArr[loopCounter][3]+job_size[loopCounter]-1;//finishing time
+			}
+		}
+		return outputArr;
+	}
+}
