@@ -1,42 +1,6 @@
 /**
- * Class description goes here.
+ * This class has a method that has test case that calculates the waiting,start and finishing time of a job according to the given arrival time and job size.
  *
- * @version 1.10 04 Oct 1996
- * @author Firstname Lastname
+ * @version 1 23 Jan 2018
+ * @author Akshita Dixit
  */
-public class Blah extends SomeClass {
- /* A class implementation comment can go here. */
- /** classVar1 documentation comment */
- public static int classVar1;
- /*** classVar2 documentation comment that happens to be
- * more than one line long
- */
- private static Object classVar2;
- /** instanceVar1 documentation comment */
- public Object instanceVar1;
- /** instanceVar2 documentation comment */
- protected int instanceVar2;
- /** instanceVar3 documentation comment */
- private Object[] instanceVar3;
-11 - Code Examples
-20
- /**
- * ...method Blah documentation comment...
- */
- public Blah() {
- // ...implementation goes here...
- }
- /**
- * ...method doSomething documentation comment...
- */
- public void doSomething() {
- // ...implementation goes here...
- }
- /**
- * ...method doSomethingElse documentation comment...
- * @param someParam description
- */
- public void doSomethingElse(Object someParam) {
- // ...implementation goes here...
- }
-}
