@@ -1,6 +1,6 @@
 
 /**
- * The program returns the merged and sorted input arrays which were also sorted.
+ * The program returns the type of array passed, 0 for unsorted, 1 for sorted and ascending, 2 for sorted and descending.
  * equal is assumed to be ascending
  *
  * @version 1.0 23rd January 2018
