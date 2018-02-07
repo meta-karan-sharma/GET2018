@@ -7,7 +7,8 @@
  */
 package assignment_1;
 
-public class A extends AtomicElement {
+public class A extends AtomicElement 
+{
 	
 	// Attribute of Anchor tag
 	String href;
@@ -18,13 +19,13 @@ public class A extends AtomicElement {
 	 * @param href
 	 * @param className
 	 */
-	A(String id, String href, String className){
+	A(String id, String href, String className)
+	{
 		
 		// calling parent class for initialization
-		super(id,className);
+		super (id, className);
 		
 		// initializing the value
-		this.href= href;
-	
+		this.href = href;
 	}
 }

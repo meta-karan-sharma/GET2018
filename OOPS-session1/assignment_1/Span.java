@@ -9,14 +9,11 @@ package assignment_1;
 
 public class Span extends CompositeElement
 {
-	/**
-	 * Constructor to initialize the values
-	 * 
-	 * @param id
-	 * @param className
-	 */
-	Span(String id, String className)
+	
+	// Constructor to initialize the values
+	Span (String id, String className)
 	{
+		
 		// calling parent class for initialization
 		super(id , className);
 	}

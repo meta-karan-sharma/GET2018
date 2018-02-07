@@ -6,6 +6,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -13,6 +14,7 @@ public class TestDOM
 {
 	static Dom dom;
 	static CompositeElement div1;
+	static CompositeElement root; 
 	static CompositeElement div2;
 	static CompositeElement div3;
 	static AtomicElement a;
@@ -21,9 +23,10 @@ public class TestDOM
 	static AtomicElement img2;
 	
 	@BeforeClass
-	 public static void doBefore () 
+	public static void doBefore () 
 	{
-		dom = new Dom ();
+		root = new Root ("0", "root");
+		dom = new Dom (root);
 		div1 = new Div ("1", "abc");
 		div2 = new Div ("0", "abc");
 		a = new A ("9", "ab", "asa");
@@ -31,33 +34,35 @@ public class TestDOM
 		img3 = new Img ("6", "ab", "abcd");
 		img1 = new Img ("3", "ab", "abc"); 
 		img2 = new Img ("8", "ab", "abcd"); 
-		dom.add (div1);
+		( (CompositeElement)root). add (div1);
 		div1.add (div2);
 		div2.add (a);
 		div2.add (div3);
 		div3.add (img3);
-		dom.add (img1);
-		div1.add (img2);
+		( (CompositeElement) root). add (img1);
+		div1. add (img2);
 	}
 	@Test
-	public void className_test () 
+	public void className_test() 
 	{
+		
 		List <Element> actual2 = dom.findElementByClass ("abcd");
 		List <String> result = new ArrayList <String> ();
-		for ( Element listElement : actual2) 
+		for (Element listElement : actual2) 
 		{
- 			result.add (listElement.getClass ().getSimpleName ());
+ 			result.add (listElement. getClass (). getSimpleName ());
  		}
 		List <String> expected = new ArrayList <String> ();
-		expected.addAll ( Arrays.asList ("Div", "Img", "Img"));
+		expected. addAll ( Arrays. asList ("Div", "Img", "Img"));
 		assertEquals (expected, result);
+		
 	}
 	
 	@Test
 	public void id_test () 
 	{
 		
-		String actual = dom.findElementByID ("3").getClass ().getSimpleName ();
+		String actual = dom. findElementByID ("3"). getClass (). getSimpleName ();
 		String expected = "Img" ;
 		assertEquals (expected, actual);
 		
@@ -67,13 +72,22 @@ public class TestDOM
 	public void dom_test () 
 	{
 		
-		List <String> expected = new ArrayList <String> ();
-		expected.addAll (Arrays.asList ("<Div id='1'>","    <Div id='0'>","        <A id='9'>","        <Div id='4'>",
-									  "            <Img id='6'>","        </Div>","    </Div>","    <Img id='8'>",
-									  "</Div>","<Img id='3'>" ));
-		List <String> actual = dom.displayDOM ();
-		assertEquals (expected, actual);
+		List <String> expected = new ArrayList<String> ();
+		expected. addAll (Arrays. asList (  "<Root id='0'>",
+											"    <Div id='1'>",
+											"        <Div id='0'>",
+											"            <A id='9'>",
+											"            <Div id='4'>",
+											"                <Img id='6'>",
+											"            </Div>",
+											"        </Div>",
+											"        <Img id='8'>",
+											"    </Div>",
+											"    <Img id='3'>",
+											"</Root>" ));
 		
+		List <String> actual = dom. displayDOM ();
+		
+		assertEquals (expected, actual);	
 	}
-
 }

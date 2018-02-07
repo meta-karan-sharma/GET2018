@@ -10,15 +10,11 @@ package assignment_1;
 public class Div extends CompositeElement 
 {
 	
-	/**
-	 * Constructor to initialize the values
-	 * 
-	 * @param id
-	 * @param className
-	 */
-	Div(String id, String className)
+	// Constructor to initialize the values
+	Div (String id, String className)
 	{
+		
 		// calling parent class for initialization
-		super(id,className);
+		super (id, className);
 	}
 }
