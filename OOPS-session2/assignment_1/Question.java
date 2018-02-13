@@ -18,6 +18,16 @@ public class Question
 	private String questionOptions;
 	
 	/**
+	 *This method implements the compareTo method of Comparable interface
+	 *@param ques
+	 *@return 
+	 */
+	@Override
+	public int compareTo(Question ques)
+	{
+		return this.question.compareTo(ques.question);
+	}
+	/**
 	 * method to tokenize the question line
 	 * @param line
 	 */
