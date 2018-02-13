@@ -155,9 +155,10 @@ public class TestSurvey
 	 * This function simulates the test given by the participants
 	 * it also calculates the result and compares it with the expected result
 	 */
-	public void test2() {
-		SortQuestion s = new SortQuestion();
-		questionList = s.sortQuestion(questionList);
+	public void test2() 
+	{
+		Collections.sort(questionList);
+		
 		List <String> actual = new ArrayList<String>();
 		List <String> expected = new ArrayList<String>();
 		for(Question q : questionList){
