@@ -19,17 +19,17 @@ public class Counselling {
 			Candidate c = candidateQueue.deQueue();
 			candidateList.add(c);
 			System.out.println("Call for Student:"+ c.getName() +" Remaining Students = "+candidateQueue.length());
-			int flag = 0;
+			boolean flag = false;
 			int j;
 			
 			//Printing the list of colleges.
 			for( j = 0; j<collegeQueue.size(); j++) {
 				if(collegeQueue.get(j).isAvailable()) {
-					flag = 1;
+					flag = true;
 					System.out.println("Id:"+(j+1)+"College name:"+collegeQueue.get(j).getName()+"  "+"Available seats:"+collegeQueue.get(j).getAvlSeats());
 				}
 			}
-			if(flag != 0) {
+			if(!flag) {
 				ch = input[inputCounter++]-1;   	//Choice entered by the candidate.
 				//For invalid choice.
 				if(((ch > j)&&(ch <= 0)) || (collegeQueue.get(ch).getAvlSeats()<=0)) {
