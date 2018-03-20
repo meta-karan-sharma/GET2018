@@ -32,7 +32,7 @@ public class Counselling {
 			if(!flag) {
 				ch = input[inputCounter++]-1;   	//Choice entered by the candidate.
 				//For invalid choice.
-				if(((ch > j)&&(ch <= 0)) || (collegeQueue.get(ch).getAvlSeats()<=0)) {
+				if( ( (ch > j) || (ch <= 0) ) || (collegeQueue.get(ch).getAvlSeats()<=0)) {
 					throw new IllegalArgumentException("Wrong Choice");
 				}
 				c.setCollegeName(collegeQueue.get(ch).getName());
